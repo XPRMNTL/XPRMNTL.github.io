@@ -1,4 +1,4 @@
-# ![XPRMNTL](/images/ghLogo.jpg)
+# ![XPRMNTL](/images/ghLogo.png)
 XPRMNTL (read "Experimental") is an application of [Code-based Feature Flags](http://en.wikipedia.org/wiki/Feature_toggle) with a web-based configuration via a dashboard and API.
 
 ### Why is this a thing?
