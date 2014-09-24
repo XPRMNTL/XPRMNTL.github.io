@@ -1,1 +1,142 @@
-<h1>Test</h1>
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="XPRMNTL : Experiments as a Service">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>XPRMNTL</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/XPRMNTL">View on GitHub</a>
+
+          <h1 id="project_title">XPRMNTL</h1>
+          <h2 id="project_tagline">Experiments as a Service</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="" class="anchor" href="#"><span class="octicon octicon-link"></span></a><img src="/images/ghLogo.jpg" alt="XPRMNTL">
+</h1>
+
+<p>XPRMNTL (read "Experimental") is an application of <a href="http://en.wikipedia.org/wiki/Feature_toggle">Code-based Feature Flags</a> with a web-based configuration via a dashboard and API.</p>
+
+<h3>
+<a name="why-is-this-a-thing" class="anchor" href="#why-is-this-a-thing"><span class="octicon octicon-link"></span></a>Why is this a thing?</h3>
+
+<p>XPRMNTL exists for a number of problems that needed a solution:</p>
+
+<ol>
+<li>Feature Flags (Intra-documentationally referred to as "Experiment" or "feature")
+
+<ul>
+<li>Gain: Allows us to keep all code in "master" without it being "client-facing"</li>
+<li>Alternative: version control branches</li>
+</ul>
+</li>
+<li>For distributed systems
+
+<ul>
+<li>Gain: Allows us to keep all of our instances in sync, where memory is not shared</li>
+<li>Alternative: a file in the repository that all components use for building</li>
+</ul>
+</li>
+<li>That can be quickly changed
+
+<ul>
+<li>Gains:
+
+<ul>
+<li>Allows rapid enabling/disabling of features (rapid roll-backs on error)</li>
+<li>Allows gradual scaling that isn't heart-breakingly slow</li>
+</ul>
+</li>
+<li>Alternatives:
+
+<ul>
+<li>Deploy for changes (5 - 90min)</li>
+<li>Environment variables for experiments</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>By non-technical people (optionally)
+
+<ul>
+<li>Gain: Allows us to wrap metrics around our experiences and allow product ownership to deliver</li>
+<li>Alternatives:
+
+<ul>
+<li>Developer-only configuration and deployment</li>
+<li>Roll-out meetings</li>
+<li>After-hours development emergencies for roll-backs</li>
+</ul>
+</li>
+<li>Warnings:
+
+<ul>
+<li>Make sure testing is done and monitoring is in place if development isn't involved in delivery</li>
+<li>This is not a use-case for technical replacements (db replacements, etc), but may be for lean startup methodologies of "Build-Measure-Learn"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>
+<a name="components" class="anchor" href="#components"><span class="octicon octicon-link"></span></a>Components</h2>
+
+<h3>
+<a name="dashboard--api" class="anchor" href="#dashboard--api"><span class="octicon octicon-link"></span></a>Dashboard &amp; API</h3>
+
+<p>The <a href="https://github.com/XPRMNTL/feature">XPRMNTL dashboard</a> is a UI for the API, which allows you to:</p>
+
+<ol>
+<li>Select Github repositories to add to Experiments</li>
+<li>Modify experiment configuration</li>
+</ol><p>The current implementation requires a Github Organization with repositories for the code and uses Github's OAuth2 strategies for authentication/authorization.</p>
+
+<h3>
+<a name="clients" class="anchor" href="#clients"><span class="octicon octicon-link"></span></a>Clients</h3>
+
+<p>The XPRMNTL client is a language-specific client for "announcing" your experiment configuration and getting back your experiment settings.</p>
+
+<p>Currently only a Node.js client exists. I'd love to see more...</p>
+
+<ol>
+<li><a href="https://github.com/XPRMNTL/feature-client">Node.js Client</a></li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-48272307-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
