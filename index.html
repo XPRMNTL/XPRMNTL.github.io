@@ -1,187 +1,185 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'>
-  <meta content="chrome=1" http-equiv="X-UA-Compatible">
-  <meta content="XPRMNTL: Experiments as a Service" name="description">
-  <meta property="og:title" content="XPRMNTL: Experiments as a Service" />
-  <meta property="og:description" content="XPRMNTL (read 'Experimental') is an application of Code-based Feature Flags with a web-based configuration via a dashboard and API." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://xprmntl.github.io/" />
-  <meta property="og:image" content="https://xprmntl.github.io/images/ghLogo.png">
-  <link href="stylesheets/stylesheet.css" media="screen" rel="stylesheet" type="text/css">
 
-  <title>XPRMNTL</title>
-  <script>
-    var host = "xprmntl.github.io";
-    if ((host == window.location.host) && (window.location.protocol != "https:"))
-      window.location.protocol = "https";
-  </script>
-</head>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="XPRMNTL : Experiments as a Service">
 
-<body>
-  <!-- HEADER -->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-  <div class="outer" id="header_wrap">
-    <header class="inner">
-      <a href="https://github.com/XPRMNTL" id="forkme_banner">View on
-      GitHub</a>
+    <title>XPRMNTL</title>
+  </head>
 
-      <h1 id="project_title">XPRMNTL</h1>
+  <body>
 
-      <h2 id="project_tagline">Experiments as a Service</h2>
-    </header>
-  </div><!-- MAIN CONTENT -->
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/XPRMNTL">View on GitHub</a>
 
-  <div class="outer" id="main_content_wrap">
-    <section class="inner" id="main_content">
-      <h1><img alt="XPRMNTL" src="/images/ghLogo.png"></h1>
+          <h1 id="project_title">XPRMNTL</h1>
+          <h2 id="project_tagline">Experiments as a Service</h2>
 
-      <p>XPRMNTL (read "Experimental") is an application of <a href=
-      "http://en.wikipedia.org/wiki/Feature_toggle">Code-based Feature
-      Flags</a> with a web-based configuration via a dashboard and API.</p>
+        </header>
+    </div>
 
-      <h3><a class="anchor" href="#why-is-this-a-thing" id=
-      "why-is-this-a-thing" name="why-is-this-a-thing"><span class=
-      "octicon octicon-link"></span></a>Why is this a thing?</h3>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="" class="anchor" href="#" aria-hidden="true"><span class="octicon octicon-link"></span></a><img src="/images/ghLogo.jpg" alt="XPRMNTL">
+</h1>
 
-      <p>XPRMNTL exists for a number of problems that needed a solution:</p>
+<p>XPRMNTL (read "Experimental") is an application of <a href="http://en.wikipedia.org/wiki/Feature_toggle">Code-based Feature Flags</a> with a web-based configuration via a dashboard and API.</p>
 
-      <ol>
-        <li>Feature Flags (Intra-documentationally referred to as "Experiment"
-        or "feature")
+<h3>
+<a id="why-is-this-a-thing" class="anchor" href="#why-is-this-a-thing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why is this a thing?</h3>
 
-          <ul>
-            <li>Gain: Allows us to keep all code in "master" without it being
-            "client-facing"</li>
+<p>XPRMNTL exists for a number of problems that needed a solution:</p>
 
-            <li>Alternative: version control branches</li>
-          </ul>
-        </li>
+<ol>
+<li>Feature Flags (Intra-documentationally referred to as "Experiment" or "feature")
 
-        <li>For distributed systems
+<ul>
+<li>Gain: Allows us to keep all code in "master" without it being "client-facing"</li>
+<li>Alternative: version control branches</li>
+</ul>
+</li>
+<li>For distributed systems
 
-          <ul>
-            <li>Gain: Allows us to keep all of our instances in sync, where
-            memory is not shared</li>
+<ul>
+<li>Gain: Allows us to keep all of our instances in sync, where memory is not shared</li>
+<li>Alternative: a file in the repository that all components use for building</li>
+</ul>
+</li>
+<li>That can be quickly changed
 
-            <li>Alternative: a file in the repository that all components use
-            for building</li>
-          </ul>
-        </li>
+<ul>
+<li>Gains:
 
-        <li>That can be quickly changed
+<ul>
+<li>Allows rapid enabling/disabling of features (rapid roll-backs on error)</li>
+<li>Allows gradual scaling that isn't heart-breakingly slow</li>
+</ul>
+</li>
+<li>Alternatives:
 
-          <ul>
-            <li>Gains:
+<ul>
+<li>Deploy for changes (5 - 90min)</li>
+<li>Environment variables for experiments</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>By non-technical people (optionally)
 
-              <ul>
-                <li>Allows rapid enabling/disabling of features (rapid
-                roll-backs on error)</li>
+<ul>
+<li>Gain: Allows us to wrap metrics around our experiences and allow product ownership to deliver</li>
+<li>Alternatives:
 
-                <li>Allows gradual scaling that isn't heart-breakingly
-                slow</li>
-              </ul>
-            </li>
+<ul>
+<li>Developer-only configuration and deployment</li>
+<li>Roll-out meetings</li>
+<li>After-hours development emergencies for roll-backs</li>
+</ul>
+</li>
+<li>Warnings:
 
-            <li>Alternatives:
+<ul>
+<li>Make sure testing is done and monitoring is in place if development isn't involved in delivery</li>
+<li>This is not a use-case for technical replacements (db replacements, etc), but may be for lean startup methodologies of "Build-Measure-Learn"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 
-              <ul>
-                <li>Deploy for changes (5 - 90min)</li>
+<h2>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Components</h2>
 
-                <li>Environment variables for experiments</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
+<h3>
+<a id="dashboard--api" class="anchor" href="#dashboard--api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dashboard &amp; API</h3>
 
-        <li>By non-technical people (optionally)
+<p>The <a href="https://github.com/XPRMNTL/feature">XPRMNTL dashboard</a> is a UI for the API, which allows you to:</p>
 
-          <ul>
-            <li>Gain: Allows us to wrap metrics around our experiences and
-            allow product ownership to deliver</li>
+<ol>
+<li>Select Github repositories to add to Experiments</li>
+<li>Modify experiment configuration</li>
+</ol>
 
-            <li>Alternatives:
+<p>The current implementation requires a Github Organization with repositories for the code and uses Github's OAuth2 strategies for authentication/authorization.</p>
 
-              <ul>
-                <li>Developer-only configuration and deployment</li>
+<h3>
+<a id="clients" class="anchor" href="#clients" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clients</h3>
 
-                <li>Roll-out meetings</li>
+<p>The XPRMNTL client is a language-specific client for "announcing" your experiment configuration and getting back your experiment settings.</p>
 
-                <li>After-hours development emergencies for roll-backs</li>
-              </ul>
-            </li>
+<p>Below is a list of available clients. We'd love to see more...</p>
 
-            <li>Warnings:
+<ol>
+<li><a href="https://github.com/XPRMNTL/feature-client">Node.js Client</a></li>
+<li><a href="https://github.com/XPRMNTL/xprmntl2go">Go-lang Client</a></li>
+</ol>
 
-              <ul>
-                <li>Make sure testing is done and monitoring is in place if
-                development isn't involved in delivery</li>
+<h3>
+<a id="plugins" class="anchor" href="#plugins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plugins</h3>
 
-                <li>This is not a use-case for technical replacements (db
-                replacements, etc), but may be for lean startup methodologies
-                of "Build-Measure-Learn"</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ol>
+<p>Plugins are for the preferred method of adding additional functionality to either the client -or the dashboard (future)-
+Here is a list of the current ones:</p>
 
-      <h2><a class="anchor" href="#components" id="components" name=
-      "components"><span class=
-      "octicon octicon-link"></span></a>Components</h2>
+<ol>
+<li>
+<a href="https://github.com/XPRMNTL/xpr-express.js">xpr-express</a>
 
-      <h3><a class="anchor" href="#dashboard--api" id="dashboard--api" name=
-      "dashboard--api"><span class="octicon octicon-link"></span></a>Dashboard
-      &amp; API</h3>
+<ul>
+<li>Plugin for Node.js Client</li>
+<li>Adds some <a href="https://github.com/strongloop/express">Express</a> middleware.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/XPRMNTL/xpr-toggle.js">xpr-toggle</a>
 
-      <p>The <a href="https://github.com/XPRMNTL/feature">XPRMNTL dashboard</a>
-      is a UI for the API, which allows you to:</p>
+<ul>
+<li>Plugin for Node.js client, piggy-backs off xpr-exress, as well. Not tested using without (volunteers?)</li>
+<li>Adds a UI toggler to enable/disable features on a per-user basis.</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/XPRMNTL/xpr-angular.js">xpr-angular</a>
 
-      <ol>
-        <li>Select Github repositories to add to Experiments</li>
+<ul>
+<li>Plugin for xpr-toggle</li>
+<li>Angular Directive for toggling HTML elements when features are enabled</li>
+</ul>
+</li>
+</ol>
 
-        <li>Modify experiment configuration</li>
-      </ol>
+<h3>
+<a id="example-app" class="anchor" href="#example-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example App</h3>
 
-      <p>The current implementation requires a Github Organization with
-      repositories for the code and uses Github's OAuth2 strategies for
-      authentication/authorization.</p>
+<p>If you'd like some inspiration implementing XPRMNTL in your own apps, feel free to have a look at the <a href="https://github.com/XPRMNTL/feature-app">Example App</a>. I currently use it for testing and building new functionality as well, so I'm sorry if I break something for you. It should be stable, at least, at any point.]</p>
+      </section>
+    </div>
 
-      <h3><a class="anchor" href="#clients" id="clients" name=
-      "clients"><span class="octicon octicon-link"></span></a>Clients</h3>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
 
-      <p>The XPRMNTL client is a language-specific client for "announcing" your
-      experiment configuration and getting back your experiment settings.</p>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-48272307-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
 
-      <p>Below is a list of available clients. We'd love to see more...</p>
 
-      <ol>
-        <li>
-          <a href="https://github.com/XPRMNTL/feature-client">Node.js
-          Client</a>
-        </li>
-        <li>
-          <a href="https://github.com/XPRMNTL/xprmntl2go">Go-lang Client</a>
-        </li>
-      </ol>
-    </section>
-  </div><!-- FOOTER  -->
-
-  <div class="outer" id="footer_wrap">
-    <footer class="inner">
-      <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-    </footer>
-  </div>
-  <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-  </script>
-  <script type="text/javascript">
-    try {
-      var pageTracker = _gat._getTracker("UA-48272307-2");
-      pageTracker._trackPageview();
-    } catch(err) {}
-  </script>
-</body>
+  </body>
 </html>
