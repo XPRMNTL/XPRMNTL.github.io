@@ -30,7 +30,7 @@ XPRMNTL exists for a number of problems that needed a solution:
 ## Components
 
 ### Dashboard & API
-The [XPRMNTL dashboard](https://github.com/XPRMNTL/feature) is a UI for the API, which allows you to:
+The [XPRMNTL dashboard](https://github.com/XPRMNTL/xpr-dashboard) is a UI for the API, which allows you to:
 
 1. Select Github repositories to add to Experiments
 2. Modify experiment configuration
